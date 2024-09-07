@@ -53,12 +53,8 @@ function collectPageData() {
 
 function sendDataToGoogleSheet(data) {
    // Send the foods no fucking errors... yeh? no? no? yeh? okay. 
-<<<<<<< HEAD
-  fetch('https://script.google.com/macros/s/AKfycbzK5ohijBLp1QqUw1GNq7DtzD2gHg7W0M1s3HlvHN6qv14L7A42fqMDYBHhDrPO8oNa/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbz9ej4pOT-XDVCgxa1OhDoK8UWpPABfwo4hrp_iUjGbot49PwtP23_jDlSXEVB7brUq/exec', {
     mode: 'no-cors',
-=======
-  fetch('https://script.google.com/macros/s/AKfycbwLxgFt87T4zYa8zcueb7QPOyzKAYN4jUBJZ_6I3UdtmaNBfDal8_2qeD8X4mkVgZKQ/exec', {
->>>>>>> parent of 5f6b937 (no cors test)
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
