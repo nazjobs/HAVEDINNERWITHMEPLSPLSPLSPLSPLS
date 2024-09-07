@@ -1,18 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
   const button = document.querySelector('.button');
-  button.addEventListener('click', () => {
-    const data = collectPageData();
-    sendDataToGoogleSheet(data);
-  });
+  if (button) {
+    button.addEventListener('click', () => {
+      const data = collectPageData();
+      console.log('Data to be sent:', data); 
+      sendDataToGoogleSheet(data);
+    });
+  } else {
+    console.error('Button with class "button" not found.');
+  }
 });
 
 function collectPageData() {
   const data = {};
 
-  // Collecting the NO count, need to create the local strage tho so check for the index.html
+  // Collecting the NO count, need to create the local storage tho so check for the index.html
   data.noCount = localStorage.getItem('noCount') || 0;
 
-  // Collect data from the current Foood page you get the gist of it the next will be the other page
+  // Collect data from the current Food page you get the gist of it the next will be the other page
   if (document.querySelectorAll('input[name="food"]').length > 0) {
     const selectedFoods = [];
     document.querySelectorAll('input[name="food"]:checked').forEach((checkbox) => {
@@ -48,12 +53,7 @@ function collectPageData() {
 
 function sendDataToGoogleSheet(data) {
    // Send the foods no fucking errors... yeh? no? no? yeh? okay. 
-<<<<<<< HEAD:js/main.js
   fetch('https://script.google.com/macros/s/AKfycbzK5ohijBLp1QqUw1GNq7DtzD2gHg7W0M1s3HlvHN6qv14L7A42fqMDYBHhDrPO8oNa/exec', {
-    mode: 'no-cors',
-=======
-  fetch('https://script.google.com/macros/s/AKfycbwLxgFt87T4zYa8zcueb7QPOyzKAYN4jUBJZ_6I3UdtmaNBfDal8_2qeD8X4mkVgZKQ/exec', {
->>>>>>> parent of 5f6b937 (no cors test):js/Decollector.js
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
